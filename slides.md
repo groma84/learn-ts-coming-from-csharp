@@ -199,7 +199,6 @@ layout: two-cols
 - Server-Programmierung
 - Browser-Programmierung
 - TypeScript-Einstieg
-- (Fortgeschrittene TypeScript-Features)
 
 ---
 
@@ -262,6 +261,161 @@ enum UserResponse {
 ```
 
 ---
+layout: heading-two-cols
+---
+
+## Generics
+
+::left::
+
+```ts
+
+
+function map<A, B>(value: A, mappingFn: (val: A) => B): B {
+  return mappingFn(value);
+}
+
+
+const r = map<string, number>('a', (s: string) => s.length);
+const r_ = map('a', s => s.length);
+```
+
+::right::
+
+```csharp
+public class E
+{
+  public static B Map<A, B>(A value, Func<A, B> mappingFn) {
+    return mappingFn(value);
+  }
+}
+
+var r = E.Map<String, int>("a", (String s) => s.Length);
+var r_ = E.Map("a", s => s.Length);
+```
+
+---
+layout: heading-two-cols
+---
+
+## Records
+- false friends - die beiden Dinge haben nichts miteinander zu tun
+
+
+::left::
+
+```ts
+// Record is an object type with 
+// key type K and value type V: Record<K, V>
+const numberedTransactions: Record<number, Transaction> = {
+  0: new Transaction(-7),
+  1: new Transaction(36),
+  2: new Transaction(6),
+};
+```
+
+::right::
+
+```csharp
+// Record is a reference type for encapsulating data 
+// with built-in functionality:
+// compare by value, immutability, toString formatting 
+public record Person(string FirstName, string LastName);
+
+```
+
+---
+layout: heading-two-cols
+---
+
+## async/await
+
+
+
+---
+layout: heading-two-cols
+---
+
+## Projektsetup
+
+::left::
+
+package.json
+tsconfig.json
+
+::right::
+
+.csproj
+
+---
+
+## Ökosystem
+
+::left::
+npm
+
+::right::
+nuget
+
+---
+
+## Serverprogrammierung
+- guter Einstieg in TypeScript
+- keine Browser-Konzepte notwendig
+- node.js Besonderheiten beachten!
+
+---
+
+## TypeScript: node.js mit fastify
+
+---
+
+## C#: Minimal API(?)
+
+---
+
+## Andere TypeScript-Server-Frameworks
+
+---
+
+## Testing
+Frameworks
+
+---
+
+## Browser
+- C# mit Blazor
+- TypeScript als Obermenge von JavaScript
+
+---
+
+## "vanilla"-Beispiel 
+
+::left::
+
+HTML
+
+::right::
+
+TypeScript
+
+---
+
+## Web-Frameworks
+
+---
+
+## Weitere Einsatzmöglichkeiten
+Azure Functions
+Electron
+alles, was mit JavaScript geht
+
+---
+
+## Einstiegsmöglichkeiten
+
+---
+
 ## Kontakt
 
 <div class="flex">
@@ -297,4 +451,4 @@ enum UserResponse {
  
 </div>
 
-
+---

@@ -1,7 +1,8 @@
 {
   "private": true,
   "scripts": {
-    "dev": "slidev --open",
+    "dev": "slidev",
+    "open": "slidev --open",
     "build": "slidev build --base /interpersonal-validation/ && cp -r public/fonts dist/assets/ && cp -r public/img dist/assets/",
     "build-with-notes": "slidev build slides-with-visible-notes.md --base /interpersonal-validation/ && cp -r public/fonts dist/assets/ && cp -r public/img dist/assets/",
     "export": "slidev export",
