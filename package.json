@@ -1,0 +1,20 @@
+{
+  "private": true,
+  "scripts": {
+    "dev": "slidev --open",
+    "build": "slidev build --base /interpersonal-validation/ && cp -r public/fonts dist/assets/ && cp -r public/img dist/assets/",
+    "build-with-notes": "slidev build slides-with-visible-notes.md --base /interpersonal-validation/ && cp -r public/fonts dist/assets/ && cp -r public/img dist/assets/",
+    "export": "slidev export",
+    "gh-pages": "gh-pages -d dist"
+  },
+  "dependencies": {
+    "@slidev/cli": "0.36.5",
+    "@slidev/theme-default": "*",
+    "@slidev/theme-seriph": "*",
+    "gh-pages": "4.0.0"
+  },
+  "name": "learn-ts-coming-from-csharp",
+  "devDependencies": {
+    "playwright-chromium": "1.26.1"
+  }
+}
