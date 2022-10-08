@@ -77,5 +77,11 @@ pre[class*='language-'] {
 }
 
 .code-small code {
-  font-size: 0.8rem;
+  font-size: 0.7rem;
+  line-height: 0.7rem;
+}
+
+.code-very-small code {
+  font-size: 0.5rem;
+  line-height: 0.5rem;
 }

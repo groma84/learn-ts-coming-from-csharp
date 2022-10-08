@@ -15,7 +15,6 @@ System.Console.WriteLine(Workflow.ToPrintableOnlyPositive(ts));
 var result = FizzBuzz.Examples.Map<String, int>("abc", (String s) => s.Length);
 var result_ = FizzBuzz.Examples.Map("abc", s => s.Length);
 
-
 public enum Direction
 {
     Up,
@@ -27,6 +26,7 @@ public enum UserResponse
     No = 0,
     Yes = 1,
 }
+
 
 
 

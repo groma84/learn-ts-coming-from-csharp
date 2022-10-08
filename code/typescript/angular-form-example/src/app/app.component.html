@@ -1,0 +1,9 @@
+<div>
+  <label for="todo">Todo:</label>
+  <input type="text" name="todo" id="todo" [formControl]="todo" required maxlength="255" />
+  <button type="button" (click)="save()">Save</button>
+
+  <ul id="todos-list">
+    <li *ngFor="let todo of todos">{{todo}}</li>
+  </ul>
+</div>
