@@ -104,6 +104,7 @@ fb.FizzBuzz();
 layout: two-cols
 ---
 
+<v-click>
 
 <div class="code-small">
 ```ts
@@ -141,7 +142,11 @@ console.log(toPrintableOnlyPositive(ts));
 
 </div>
 
+</v-click>
+
 ::right::
+
+<v-click>
 
 <div class="code-small">
 
@@ -180,9 +185,13 @@ System.Console.WriteLine(Workflow.ToPrintableOnlyPositive(ts));
 
 </div>
 
+</v-click>
+
 ---
 layout: two-cols
 ---
+
+<v-click>
 
 ### TypeScript
 - Microsoft
@@ -190,7 +199,11 @@ layout: two-cols
 - C-Style Syntax
 - Kompiliert zu JavaScript
 
+</v-click>
+
 ::right::
+
+<v-click>
 
 ### C#
 - Microsoft
@@ -198,11 +211,13 @@ layout: two-cols
 - C-Style Syntax
 - Kompiliert zu Common Intermediate Language
 
+</v-click>
+
 ---
 
 ## Agenda
 - Sprachfeatures
-- Projektsetup
+- Projektsetup & Ökosystem
 - Server-Programmierung
 - Browser-Programmierung
 - TypeScript-Einstieg
@@ -220,6 +235,9 @@ layout: heading-two-cols
 ## Enums
 
 ::left:: 
+
+<v-click>
+
 
 ```ts
 // simplest case
@@ -251,7 +269,12 @@ enum FileAccess {
   G = "123".length,
 }
 ```
+
+</v-click>
+
 ::right::
+
+<v-click>
 
 ```csharp
 // simplest case
@@ -267,6 +290,9 @@ enum UserResponse {
 }
 ```
 
+</v-click>
+
+
 ---
 layout: heading-two-cols
 ---
@@ -274,6 +300,8 @@ layout: heading-two-cols
 ## Generics
 
 ::left::
+
+<v-click>
 
 ```ts
 
@@ -287,7 +315,12 @@ const r = map<string, number>('a', (s: string) => s.length);
 const r_ = map('a', s => s.length);
 ```
 
+</v-click>
+
+
 ::right::
+
+<v-click>
 
 ```csharp
 public class E
@@ -301,15 +334,17 @@ var r = E.Map<String, int>("a", (String s) => s.Length);
 var r_ = E.Map("a", s => s.Length);
 ```
 
+</v-click>
+
 ---
 layout: heading-two-cols
 ---
 
 ## Records
-- false friends - die beiden Dinge haben nichts miteinander zu tun
-
 
 ::left::
+
+<v-click>
 
 ```ts
 // Record is an object type with 
@@ -321,15 +356,20 @@ const numberedTransactions: Record<number, Transaction> = {
 };
 ```
 
+</v-click>
+
 ::right::
+
+<v-click>
 
 ```csharp
 // Record is a reference type for encapsulating data 
 // with built-in functionality:
 // compare by value, immutability, toString formatting 
 public record Person(string FirstName, string LastName);
-
 ```
+
+</v-click>
 
 ---
 layout: heading-two-cols
@@ -339,33 +379,44 @@ layout: heading-two-cols
 
 ::left::
 
+<v-click>
+
 ```ts
 const getTodos = async () => {
   
-  
-  const res = await fetch('https://jsonplaceholder.typicode.com/todos/1');
-  const parsedTodos = await res.json();
+  const url = 'https://jsonplaceholder.typicode.com/todos/1';
+  const json = await fetch(url);
+  const parsedTodos = await json.json();
 
   console.log(parsedTodos);
 };
 ```
 
+</v-click>
+
+
 ::right::
+
+<v-click>
 
 ```csharp
 public static async void GetTodos() {
     using var httpClient = new HttpClient();
-
-    var json = await httpClient.GetStringAsync("https://jsonplaceholder.typicode.com/todos/1");
+    var url = "https://jsonplaceholder.typicode.com/todos/1";
+    var json = await httpClient.GetStringAsync(url);
     var parsedTodos = JsonConvert.DeserializeObject<Todo>(json);
 
     System.Console.WriteLine(parsedTodos);
 }
 ```
 
+</v-click>
+
 --- 
 
 ## Structural Typing
+
+<v-click>
 
 ```ts
 interface Monument {
@@ -377,24 +428,46 @@ interface Dog {
   age: number,
   name: string
 }
+```
 
+</v-click>
+
+<v-click>
+
+```ts
 function getCentury(monument: Monument) {
   console.log("the monument is from the Xth century!");
 }
 
 const dog: Dog = { age: 6, name: "Michel" };
-getCentury(dog); // compiler: 👍
+getCentury(dog); 
 ```
+
+</v-click>
+
+<v-click>
+
+```ts
+// compiler: 👍
+```
+
+</v-click>
+
 
 ---
 
 ## Projektsetup
 
 ### package.json
+
+<v-click>
+
 - Informationen zur Software
 - Skripte
 - Abhängigkeiten
 - Konfiguration
+
+</v-click>
 
 ---
 
@@ -441,6 +514,9 @@ getCentury(dog); // compiler: 👍
 ## Projektsetup
 
 ### tsconfig.json
+- Settings für den TypeScript-Compiler
+  
+<v-click>
 
 ```json
 {
@@ -464,29 +540,64 @@ getCentury(dog); // compiler: 👍
     "src/**/*.ts"
   ]
 }
-
 ```
+
+</v-click>
 
 ---
 
 ## Ökosystem
+
+<v-click>
+
 - npm (node package manager)
 - Paketverwaltung und Skript-Runner
 - [https://www.npmjs.com/](https://www.npmjs.com/)
+
+</v-click>
+
+<v-click>
+
 - Es gibt für alles ein Paket!
+
+</v-click>
+
+<v-click>
+
 - Man muss nicht für alles ein Paket nutzen...
 - Verfallsdatum, "code rot"
 
+</v-click>
+
+---
+
+## Agenda
+- Sprachfeatures
+- Projektsetup & Ökosystem
+- **Server-Programmierung**
+- Browser-Programmierung
+- TypeScript-Einstieg
 
 ---
 
 ## Serverprogrammierung
+
+<v-click>
+
+
 - guter Einstieg in TypeScript
 - keine Browser-Konzepte notwendig
+
+</v-click>
+
+<v-click>
+
 - node.js Besonderheiten beachten!
   - Single-Threaded -> CPU-bound tasks vermeiden
   - Imperatives Modell -> Spaghetti-Code-Gefahr
   - Zu viel Auswahl kann auch zum Fluch werden
+
+</v-click>
 
 ---
 layout: heading-two-cols
@@ -494,6 +605,39 @@ layout: heading-two-cols
 ## TypeScript: node.js mit fastify
 
 ::left::
+
+<v-click>
+
+### package.json
+
+```json
+{
+  "name": "fastify-example",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "fastify": "^4.7.0"
+  },
+  "devDependencies": {
+    "@types/node": "^18.8.2",
+    "typescript": "^4.8.4"
+  }
+}
+```
+
+</v-click>
+
+
+::right::
+
+<v-click>
+
+### index.ts
+
 ```ts
 import fastify from "fastify";
 
@@ -519,26 +663,8 @@ server.listen({ port: 55555 }, (err, address) => {
 
 ```
 
-::right::
+</v-click>
 
-```json
-{
-  "name": "fastify-example",
-  "version": "1.0.0",
-  "main": "index.js",
-  "scripts": {
-    "build": "tsc -p tsconfig.json",
-    "start": "node index.js"
-  },
-  "dependencies": {
-    "fastify": "^4.7.0"
-  },
-  "devDependencies": {
-    "@types/node": "^18.8.2",
-    "typescript": "^4.8.4"
-  }
-}
-```
 
 ---
 layout: heading-two-cols
@@ -547,6 +673,30 @@ layout: heading-two-cols
 ## C#: Minimal API
 
 ::left::
+
+<v-click>
+
+### .csproj
+
+```xml
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+</Project>
+```
+
+</v-click>
+
+::right::
+
+### Program.cs
+
+<v-click>
 
 ```csharp
 var builder = WebApplication.CreateBuilder(args);
@@ -562,39 +712,29 @@ app.Run("http://localhost:44444");
 record Value(string Val);
 ```
 
-::right::
-
-```xml
-<Project Sdk="Microsoft.NET.Sdk.Web">
-
-  <PropertyGroup>
-    <TargetFramework>net6.0</TargetFramework>
-    <Nullable>enable</Nullable>
-    <ImplicitUsings>enable</ImplicitUsings>
-  </PropertyGroup>
-
-</Project>
-```
+</v-click>
 
 ---
 
 ## node.js Server-Frameworks
-- [fastify]()
-- [Koa]()
-- [express]()
-- [NextJS]()
-- [NuxtJS]()
-- [SvelteKit]()
+- [fastify](https://www.fastify.io/)
+- [Koa](https://koajs.com/)
+- [express](https://expressjs.com/)
+- [NextJS](https://nextjs.org/)
+- [NuxtJS](https://nextjs.org/)
+- [SvelteKit](https://kit.svelte.dev/)
 - ...
 
 ---
 
 ## Unit-Testing
-- [jest]()
-- [vitest]()
-- [jasmine]()+[karma]() (BDD)
-- [cucumber]() (BDD)
+- [jest](https://jestjs.io/)
+- [vitest](https://vitest.dev/)
+- [jasmine](https://jasmine.github.io/)+[karma](https://karma-runner.github.io/6.4/index.html) (BDD)
+- [cucumber](https://cucumber.io/) (BDD)
 - ...
+
+<v-click>
 
 ```ts
 // vitest example
@@ -612,19 +752,30 @@ describe('FizzBuzz', () => {
     });
   })
 })
-
 ```
+
+</v-click>
 
 ---
 
-## Browser
+## Browser-Programmierung
+
+<v-click>
+
 - C# mit Blazor WebAssembly
+
+</v-click>
+
+<v-click>
+
 - TypeScript als Obermenge von JavaScript
 - TypeScript ist nicht die Schwierigkeit, sondern die ganzen Browser-APIs
 
+</v-click>
+
 ---
 
-## vanilla-Beispiel: Projektsetup
+## "vanilla"-TypeScript-Beispiel: Projektsetup
 
 <img src="img/create-vanilla-ts-project.gif" alt="project creation with vite gif" style="width: 90%;" />
 
@@ -632,9 +783,11 @@ describe('FizzBuzz', () => {
 layout: heading-two-cols
 ---
 
-## "vanilla"-Beispiel 
+## "vanilla"-TypeScript-Beispiel: Code
 
 ::left::
+
+<v-click>
 
 <div class="code-small">
 
@@ -664,14 +817,17 @@ layout: heading-two-cols
     <script type="module" src="/src/main.ts"></script>
   </body>
 </html>
-
 ```
 
 </div>
 
+</v-click>
+
 ::right::
 
 <div class="code-small">
+
+<v-click>
 
 ```ts
 import './style.css'
@@ -700,18 +856,25 @@ window.onload = () => {
 }
 ```
 
+</v-click>
+
 </div>
 
 ---
 
-## Web-Frameworks
-- [Angular]()
-- [React]()
-- [Vue]()
-- [Svelte]()
-- [Aurelia]()
+## Web-Frameworks für Single Page Applications
+- [Angular](https://angular.io/)
+- [React](https://reactjs.org/)
+- [Vue](https://vuejs.org/)
+- [Svelte](https://svelte.dev/)
 - ...
+
+<v-click>
+
 - [Pokémon or JavaScript framework?](https://oylenshpeegul.github.io/pokemon-or-javascript/)
+
+</v-click>
+
 
 ---
 layout: heading-two-cols
@@ -720,6 +883,9 @@ layout: heading-two-cols
 ## Angular Beispiel
 
 ::left::
+
+<v-click>
+
 
 ```html
 <div>
@@ -738,7 +904,13 @@ layout: heading-two-cols
 </div>
 ```
 
+</v-click>
+
+
 ::right::
+
+<v-click>
+
 
 ```ts
 import { Component } from '@angular/core';
@@ -762,24 +934,71 @@ export class AppComponent {
 }
 ```
 
+</v-click>
+
 ---
 
 ## Weitere Einsatzmöglichkeiten
 
-### Alles, was mit JavaScript geht!
+<v-click>
+
+Alles, was mit JavaScript geht!
+
+</v-click>
+
+---
+
+## Agenda
+- Sprachfeatures
+- Projektsetup & Ökosystem
+- Server-Programmierung
+- Browser-Programmierung
+- **TypeScript-Einstieg**
 
 ---
 
 ## Wie würde ich heute einsteigen?
+
+<v-click>
+
 - ["JavaScript Basics for Beginners" auf Udemy](https://www.udemy.com/course/javascript-basics-for-beginners/)
+
+</v-click>
+<v-click>
+
 - ["Understanding TypeScript - 2022 Edition" auf Udemy](https://www.udemy.com/course/understanding-typescript/)
+
+</v-click>
+<v-click>
+
 - [TypeScript Track auf exercism](https://exercism.org/tracks/typescript/)
+
+</v-click>
+<v-click>
+
 - kleine Server-Software schreiben, zum Beispiel mit [fastify](https://www.fastify.io/docs/latest/Reference/TypeScript/#typescript)
+
+</v-click>
+<v-click>
+
 - [Einstieg in die Web-Entwicklung mit dem MDN](https://developer.mozilla.org/en-US/docs/Learn/Getting_started_with_the_web)
+
+</v-click>
+<v-click>
+
 - Mit [vite](https://vitejs.dev/) kleine "vanilla-ts" Web-Projekte erzeugen und kleine Sachen bauen
+
+</v-click>
+<v-click>
+
 - Für CSS: [Learn CSS in der MDN](https://developer.mozilla.org/en-US/docs/Learn/CSS), [Flexbox Froggy](http://flexboxfroggy.com/), [Grid Garden](https://cssgridgarden.com/), versuchen ein paar Layouts nachzubauen, z.B. von [Top 10 Projects For Beginners To Practice HTML and CSS Skills](https://www.geeksforgeeks.org/top-10-projects-for-beginners-to-practice-html-and-css-skills/)
+
+</v-click>
+<v-click>
+
 - (["Angular - The Complete Guide (2022 Edition)" auf Udemy](https://www.udemy.com/course/the-complete-guide-to-angular-2/))
 
+</v-click>
 
 --- 
 
