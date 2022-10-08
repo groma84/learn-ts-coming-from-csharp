@@ -777,7 +777,7 @@ describe('FizzBuzz', () => {
 
 ## "vanilla"-TypeScript-Beispiel: Projektsetup
 
-<img src="img/create-vanilla-ts-project.gif" alt="project creation with vite gif" style="width: 90%;" />
+<img src="/img/create-vanilla-ts-project.gif" alt="project creation with vite gif" style="width: 90%;" />
 
 ---
 layout: heading-two-cols
@@ -1024,13 +1024,13 @@ Alles, was mit JavaScript geht!
     <tr>
       <td>Slides</td>
       <td>
-      <a href="https://groma84.github.io/TODO/">
-      https://groma84.github.io/TODO/
+      <a href="https://groma84.github.io/learn-ts-coming-from-csharp/">
+      https://groma84.github.io/learn-ts-coming-from-csharp/
       </a>
       </td>
     </tr>
     <tr><td></td>
-    <td><img style="object-fit: contain; width: 120px;" src="/img/gh-pages-qrcode.svg" alt="TODO QR-Code mit dem Link zum Vortrag auf Github Pages" /></td></tr>
+    <td><img style="object-fit: contain; width: 120px;" src="/img/gh-pages-qrcode.svg" alt="QR-Code mit dem Link zum Vortrag auf Github Pages" /></td></tr>
   </tbody>
   </table>
 
